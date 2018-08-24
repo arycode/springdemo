@@ -20,7 +20,7 @@
 
     <properties>
         <swagger.version>2.2.2</swagger.version>
-        <fastjson.version>1.2.9</fastjson.version>
+        <fastjson.version>1.2.15</fastjson.version>
         <okhttp3.version>3.9.1</okhttp3.version>
         <logback.version>1.1.8</logback.version>
         <slf4j.version>1.7.21</slf4j.version>
@@ -126,6 +126,17 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-tomcat</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <!-- 使用Jetty，需要在spring-boot-starter-web排除spring-boot-starter-tomcat，因为SpringBoot默认使用tomcat -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jetty</artifactId>
         </dependency>
         <dependency>
             <groupId>com.alibaba</groupId>
